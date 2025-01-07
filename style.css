@@ -40,10 +40,19 @@ nav {
     display: grid;  
     grid-template-columns: 1fr 1fr 1fr;  
     margin-top: 100px;  
-    gap: 10px;  
+    gap: 50px;  
     cursor: pointer;  
-    align-items: center;  
+    align-items: center;
 }  
+
+nav div{
+    transition: .25s;
+    padding: 10px 15px;
+}
+
+nav div:hover{
+    box-shadow: 0px 0px 5px lightgray;
+}
 
 ul {  
     list-style-type: none;  
@@ -106,8 +115,13 @@ p {
 img {  
     width: clamp(100px, 100%, 500px);  
     position: relative;  
-    cursor: pointer;  
+    cursor: pointer;
+    transition: .25s;
 }  
+
+img:hover{
+    transform: scale(1.01);
+}
 
 .download {  
     opacity: 0;  
