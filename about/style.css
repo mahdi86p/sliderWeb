@@ -11,10 +11,8 @@ body {
 
 nav {
     display: grid;
-    width: 50%;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 100px;
-    margin-inline: auto;
     gap: 50px;
     cursor: pointer;
     align-items: center;
