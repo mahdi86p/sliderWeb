@@ -1,3 +1,13 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+
 .top {
     display: flex;
     align-items: center;
@@ -40,4 +50,9 @@ li {
     display: flex;
     justify-content: center;
     cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
