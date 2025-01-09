@@ -174,3 +174,8 @@ img:hover {
     display: block;
     opacity: 1;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}
