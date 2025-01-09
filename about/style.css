@@ -1,55 +1,31 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+body{
     font-family: 'Poppins', sans-serif;
-    text-align: center;
+    display: flex
+;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
 }
 
-nav {
+a{
+    text-decoration: none;
+    color: black;
+    padding: 10px 15px;
+}
+
+nav{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
     margin-top: 100px;
     gap: 50px;
     cursor: pointer;
     align-items: center;
-}
-
-nav div {
-    transition: .25s;
-    padding: 10px 15px;
-}
-
-nav div:hover {
-    box-shadow: 0px 0px 5px lightgray;
-}
-
-ul {
-    list-style-type: none;
-    display: flex;
-    width: 500px;
-    height: 50px;
-    justify-content: space-around;
-}
-
-li {
-    background-color: #d4d4d4;
-    width: calc(500px / 3);
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.parent {
-    height: 81vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    transition: .25s;
-    padding: 10px 15px;
 }
