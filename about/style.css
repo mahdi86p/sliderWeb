@@ -48,9 +48,24 @@ nav{
     align-items: center;
     padding: 80px;
     gap: 70px;
+    height: 100vh;
+    background: linear-gradient(135deg, black, transparent);
+    color: #000000;
 }
 
-.profile > div{
-    padding: 0;
+.profPar{
+    padding-block: 10px;
+}
 
+.name{
+    font-size: 130%;
+    font-weight: bold;
+}
+
+.Footer {
+    width: 100%;
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
