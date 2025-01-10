@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@ body{
     text-align: justify;
 }
 
-.lists{
+.lists {
     text-decoration: none;
     color: black;
     padding: 10px 15px;
@@ -23,7 +23,7 @@ body{
     box-shadow: 0px 0px 3px lightgray;
 }
 
-nav{
+nav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
@@ -43,24 +43,27 @@ nav{
     letter-spacing: 5px;
 }
 
-.profile{
+.profile {
     display: flex;
     align-items: center;
-    padding: 80px;
-    gap: 70px;
+    justify-content: center;
+    width: 100%;
+    flex-grow: 1;
+    gap: 50px;
     height: 100vh;
-    background: linear-gradient(135deg, black, transparent);
+    background: linear-gradient(135deg, #d4d4d4, white);
     color: #000000;
+    flex-wrap: wrap;
 }
 
-.profPar{
+.profPar {
     padding-block: 10px;
+    line-height: 120%;
 }
 
-.name{
+.name {
     font-size: 130%;
     font-weight: bold;
-<<<<<<< HEAD
 }
 
 .Footer {
@@ -69,6 +72,17 @@ nav{
     color: white;
     text-align: center;
     padding: 20px;
-=======
->>>>>>> 3da12420022818fa851420beac9e3b18e2922c7e
+}
+
+.allProf {
+    width: 350px;
+}
+
+.githubLink {
+    text-decoration: none;
+    color: black;
+}
+
+.githubLink:hover {
+    text-decoration: underline;
 }
