@@ -60,6 +60,7 @@ nav{
 .name{
     font-size: 130%;
     font-weight: bold;
+<<<<<<< HEAD
 }
 
 .Footer {
@@ -68,4 +69,6 @@ nav{
     color: white;
     text-align: center;
     padding: 20px;
+=======
+>>>>>>> 3da12420022818fa851420beac9e3b18e2922c7e
 }
