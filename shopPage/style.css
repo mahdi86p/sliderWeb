@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -28,7 +28,7 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
-    margin-top: 100px;
+    margin-block: 100px;
     gap: 50px;
     cursor: pointer;
     align-items: center;
@@ -51,7 +51,7 @@ li {
     cursor: pointer;
 }
 
-.lists{
+.lists {
     text-decoration: none;
     padding: 10px 15px;
     color: black;
@@ -62,25 +62,14 @@ li {
     transition: .25s;
 }
 
-.title{
-    background:rgb(171, 171, 171);
-    color: white;
-    padding-inline: 100px;
-    width: 100%;
-    margin-block: 60px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-}
-
 .desc {
     display: flex;
     justify-content: space-between;
     padding: 10px 15px;
+    align-items: center;
 }
 
-.products{
+.products {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
@@ -92,6 +81,11 @@ li {
     flex-shrink: 1;
 }
 
-img{
+img {
     width: 300px;
+}
+
+.active {
+    background: black;
+    color: white;
 }

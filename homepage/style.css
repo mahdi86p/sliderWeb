@@ -182,3 +182,8 @@ a{
     color: black;
     padding: 10px 15px;
 }
+
+.active {
+    background: black;
+    color: white;
+}
