@@ -6,6 +6,8 @@ const prices = ['$130.67', '$50.99', '$512.30', '$60.94', '$169.48', '$45.32', '
 const allProducts = document.querySelector('.Orderedproducts')
 const sumPriceElem = document.querySelector('#sumPrice')
 const alertElem = document.querySelector('#alert')
+const paymentBtn = document.querySelector('#paymentBtn')
+const modal = document.querySelector('#modal')
 
 let sumPrice = 0;
 
@@ -80,4 +82,9 @@ products.forEach(function (event) {
             deletedElem.remove()
         })
     })
+})
+
+
+paymentBtn.addEventListener('click' , function(){
+    modal.append(allProducts.children)
 })
