@@ -4,6 +4,10 @@ const names = ['product1', 'product2', 'product3', 'product4', 'product5', 'prod
 const stars = ['&#11088;	&#11088;	&#11088;', '	&#11088;	&#11088;	&#11088;	&#11088;	&#11088;', '_', '_', '	&#11088;	&#11088;', '_', '_', '	&#11088;']
 const prices = ['$130.67', '$50.99', '$512.30', '$60.94', '$169.48', '$45.32', '$98.65', '$45.39']
 const allProducts = document.querySelector('.Orderedproducts')
+const sumPriceElem = document.querySelector('#sumPrice')
+const alertElem = document.querySelector('#alert')
+
+let sumPrice = 0;
 
 let i = 0
 while (i <= (names.length - 1)) {
@@ -19,10 +23,13 @@ while (i <= (names.length - 1)) {
 
 products.forEach(function (event) {
     event.addEventListener('click', (product) => {
+        alertElem.style.display = 'none'
+
         let parentDiv = document.createElement('div')
         let productNameDiv = document.createElement('div')
         let productStarDiv = document.createElement('div')
         let producPriceDiv = document.createElement('div')
+        let productDeleteDiv = document.createElement('div')
 
         let allProduct = product.currentTarget
 
@@ -36,22 +43,41 @@ products.forEach(function (event) {
         let productPrice = productDesc.children[2].innerHTML
 
         productNameDiv.innerHTML = productName
-        productNameDiv.setAttribute('id' , 'productName')
+        productNameDiv.setAttribute('id', 'productName')
 
         productStarDiv.innerHTML = producStar
-        productStarDiv.setAttribute('id' , 'producStar')
+        productStarDiv.setAttribute('id', 'producStar')
 
         producPriceDiv.innerHTML = productPrice
-        producPriceDiv.setAttribute('id' , 'productPrice')
+        producPriceDiv.setAttribute('id', 'productPrice')
+
+        productDeleteDiv.innerHTML = '🗑️'
+        productDeleteDiv.setAttribute('id', 'delBtn')
 
         parentDiv.append(productImg)
-
         parentDiv.append(productNameDiv)
         parentDiv.append(productStarDiv)
         parentDiv.append(producPriceDiv)
-
-        console.log(parentDiv)
+        parentDiv.append(productDeleteDiv)
 
         allProducts.append(parentDiv)
+
+        sumPrice += +(productPrice.slice(1))
+
+        sumPriceElem.innerHTML = 'sumPrice = $' + sumPrice.toFixed(2)
+
+        productDeleteDiv.addEventListener('click', (event) => {
+            const PriceDelete = event.target.parentElement.children[3].innerHTML.slice(1)
+            const deletedElem = event.target.parentElement
+
+            sumPrice -= PriceDelete
+            sumPriceElem.innerHTML = 'sumPrice = $' + sumPrice.toFixed(2)
+
+            if (allProducts.childElementCount === 3) {
+                alertElem.style.display = 'block'
+            }
+
+            deletedElem.remove()
+        })
     })
 })
