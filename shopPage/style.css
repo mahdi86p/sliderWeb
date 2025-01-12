@@ -81,7 +81,7 @@ li {
     flex-shrink: 1;
 }
 
-img {
+.defProductImg {
     width: 300px;
 }
 
@@ -94,7 +94,24 @@ img {
     transition: .25s;
 }
 
-.products > div:hover{
+.shadow:hover{
     box-shadow: rgb(196, 196, 196) 0px 0px 7px 0px;
     transform: scale(1.01);
+}
+
+.Orderedproducts{
+    margin-block: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Orderedproducts div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-wrap: wrap;
 }

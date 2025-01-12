@@ -3,9 +3,10 @@ const products = [document.querySelector('.product1'), document.querySelector('.
 const names = ['product1', 'product2', 'product3', 'product4', 'product5', 'product6', 'product7', 'product8']
 const stars = ['&#11088;	&#11088;	&#11088;', '	&#11088;	&#11088;	&#11088;	&#11088;	&#11088;', '_', '_', '	&#11088;	&#11088;', '_', '_', '	&#11088;']
 const prices = ['$130.67', '$50.99', '$512.30', '$60.94', '$169.48', '$45.32', '$98.65', '$45.39']
+const allProducts = document.querySelector('.Orderedproducts')
 
 let i = 0
-while (i <= 7) {
+while (i <= (names.length - 1)) {
     products[i].children[1].children[1].style.color = '#D1D100'
 
     products[i].children[0].src = images[i]
@@ -14,3 +15,43 @@ while (i <= 7) {
     products[i].children[1].children[2].innerHTML = prices[i]
     ++i
 }
+
+
+products.forEach(function (event) {
+    event.addEventListener('click', (product) => {
+        let parentDiv = document.createElement('div')
+        let productNameDiv = document.createElement('div')
+        let productStarDiv = document.createElement('div')
+        let producPriceDiv = document.createElement('div')
+
+        let allProduct = product.currentTarget
+
+        let productImg = allProduct.children[0].cloneNode(true)
+        productImg.style.width = '50px'
+
+        let productDesc = allProduct.children[1]
+
+        let productName = productDesc.children[0].innerHTML
+        let producStar = productDesc.children[1].innerHTML
+        let productPrice = productDesc.children[2].innerHTML
+
+        productNameDiv.innerHTML = productName
+        productNameDiv.setAttribute('id' , 'productName')
+
+        productStarDiv.innerHTML = producStar
+        productStarDiv.setAttribute('id' , 'producStar')
+
+        producPriceDiv.innerHTML = productPrice
+        producPriceDiv.setAttribute('id' , 'productPrice')
+
+        parentDiv.append(productImg)
+
+        parentDiv.append(productNameDiv)
+        parentDiv.append(productStarDiv)
+        parentDiv.append(producPriceDiv)
+
+        console.log(parentDiv)
+
+        allProducts.append(parentDiv)
+    })
+})
