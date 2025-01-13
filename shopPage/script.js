@@ -8,6 +8,7 @@ const sumPriceElem = document.querySelector('#sumPrice')
 const alertElem = document.querySelector('#alert')
 const paymentBtn = document.querySelector('#paymentBtn')
 const modal = document.querySelector('#modal')
+const body = document.body
 
 let sumPrice = 0;
 
@@ -95,10 +96,11 @@ paymentBtn.addEventListener('click', function () {
             modal.append(element)
             sumPrice = 0
             sumPriceElem.innerHTML = 'sumPrice = $' + sumPrice.toFixed(2)
+
+            alertElem.style.display = 'block'
+            body.style.overflow = 'hidden';
         }
     });
-
-    alertElem.style.display = 'block'
 })
 
 
@@ -106,5 +108,6 @@ window.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         modal.style.opacity = 0
         modal.innerHTML = ''
+        body.style.overflow = '';
     }
 })
