@@ -85,15 +85,26 @@ products.forEach(function (event) {
 })
 
 
-paymentBtn.addEventListener('click' , function(){
+paymentBtn.addEventListener('click', function () {
     let allProductsArray = Array.from(allProducts.children)
 
     allProductsArray.forEach(element => {
-        if(element.children.length === 5){
+        if (element.children.length === 5) {
             element.children[4].remove()
             modal.style.opacity = 1
             modal.append(element)
+            sumPrice = 0
+            sumPriceElem.innerHTML = 'sumPrice = $' + sumPrice.toFixed(2)
         }
     });
 
+    alertElem.style.display = 'block'
+})
+
+
+window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        modal.style.opacity = 0
+        modal.innerHTML = ''
+    }
 })
