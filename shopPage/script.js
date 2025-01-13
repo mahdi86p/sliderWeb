@@ -88,6 +88,9 @@ products.forEach(function (event) {
 
 paymentBtn.addEventListener('click', function () {
     let allProductsArray = Array.from(allProducts.children)
+    let sendToShoppingCart = document.createElement('button')
+    sendToShoppingCart.innerHTML = 'Send to ShopingCart'
+    sendToShoppingCart.classList = 'sendClass'
 
     allProductsArray.forEach(element => {
         if (element.children.length === 5) {
@@ -101,6 +104,12 @@ paymentBtn.addEventListener('click', function () {
             body.style.overflow = 'hidden';
         }
     });
+
+    modal.append(sendToShoppingCart)
+
+    sendToShoppingCart.addEventListener('click' , function(){
+        localStorage.setItem('ShopingCarts', JSON.stringify(allProductsArray))
+    })
 })
 
 
