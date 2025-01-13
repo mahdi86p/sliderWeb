@@ -86,5 +86,14 @@ products.forEach(function (event) {
 
 
 paymentBtn.addEventListener('click' , function(){
-    modal.append(allProducts.children)
+    let allProductsArray = Array.from(allProducts.children)
+
+    allProductsArray.forEach(element => {
+        if(element.children.length === 5){
+            element.children[4].remove()
+            modal.style.opacity = 1
+            modal.append(element)
+        }
+    });
+
 })
