@@ -4,6 +4,7 @@ const names = ['product1', 'product2', 'product3', 'product4', 'product5', 'prod
 const stars = ['&#11088;	&#11088;	&#11088;', '	&#11088;	&#11088;	&#11088;	&#11088;	&#11088;', '_', '_', '	&#11088;	&#11088;', '_', '_', '	&#11088;']
 const prices = ['$130.67', '$50.99', '$512.30', '$60.94', '$169.48', '$45.32', '$98.65', '$45.39']
 const allProducts = document.querySelector('.Orderedproducts')
+const productToStore = []
 const sumPriceElem = document.querySelector('#sumPrice')
 const alertElem = document.querySelector('#alert')
 const paymentBtn = document.querySelector('#paymentBtn')
@@ -11,6 +12,8 @@ const modal = document.querySelector('#modal')
 const body = document.body
 
 let sumPrice = 0;
+
+let allProductsArray;
 
 let i = 0
 while (i <= (names.length - 1)) {
@@ -87,7 +90,7 @@ products.forEach(function (event) {
 
 
 paymentBtn.addEventListener('click', function () {
-    let allProductsArray = Array.from(allProducts.children)
+    allProductsArray = Array.from(allProducts.children)
     let sendToShoppingCart = document.createElement('button')
     sendToShoppingCart.innerHTML = 'Send to ShopingCart'
     sendToShoppingCart.classList = 'sendClass'
@@ -95,8 +98,10 @@ paymentBtn.addEventListener('click', function () {
     allProductsArray.forEach(element => {
         if (element.children.length === 5) {
             element.children[4].remove()
+
             modal.style.opacity = 1
             modal.append(element)
+
             sumPrice = 0
             sumPriceElem.innerHTML = 'sumPrice = $' + sumPrice.toFixed(2)
 
@@ -107,11 +112,23 @@ paymentBtn.addEventListener('click', function () {
 
     modal.append(sendToShoppingCart)
 
-    sendToShoppingCart.addEventListener('click' , function(){
-        localStorage.setItem('ShopingCarts', JSON.stringify(allProductsArray))
+    sendToShoppingCart.addEventListener('click', function () {
+        allProductsArray.forEach(product => {
+            if (product.id !== 'alert') {
+                const proImg = product.children[0].src
+                const proName = product.children[1].innerHTML
+                const proStars = product.children[2].innerHTML
+                const proPrice = product.children[3].innerHTML
+
+                productToStore.push({ proImg, proName, proStars, proPrice })
+            }
+
+        })
+        localStorage.setItem('newProducts', JSON.stringify(productToStore))
+        sendToShoppingCart.innerHTML = 'Sended!'
+        location.href = '../calculatPage/index.html'
     })
 })
-
 
 window.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
