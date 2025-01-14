@@ -45,14 +45,14 @@ products.forEach(function (event) {
         let productDesc = allProduct.children[1]
 
         let productName = productDesc.children[0].innerHTML
-        let producStar = productDesc.children[1].innerHTML
+        let productStar = productDesc.children[1].innerHTML
         let productPrice = productDesc.children[2].innerHTML
 
         productNameDiv.innerHTML = productName
         productNameDiv.setAttribute('id', 'productName')
 
-        productStarDiv.innerHTML = producStar
-        productStarDiv.setAttribute('id', 'producStar')
+        productStarDiv.innerHTML = productStar
+        productStarDiv.setAttribute('id', 'productStar')
 
         producPriceDiv.innerHTML = productPrice
         producPriceDiv.setAttribute('id', 'productPrice')
