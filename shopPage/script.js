@@ -121,10 +121,13 @@ paymentBtn.addEventListener('click', function () {
                 const proPrice = product.children[3].innerHTML
 
                 productToStore.push({ proImg, proName, proStars, proPrice })
+                console.log(productToStore)
             }
 
         })
-        localStorage.setItem('newProducts', (localStorage.getItem('newProducts') + JSON.stringify(productToStore.children)))
+
+        localStorage.setItem('newProducts' , JSON.stringify(localStorage.newProducts) + productToStore)
+
         sendToShoppingCart.innerHTML = 'Sended!'
         location.href = '../calculatPage/index.html'
     })

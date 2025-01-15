@@ -1,10 +1,6 @@
 const allProduct = document.querySelector('.allProduct')
-
-const productObg = JSON.parse(localStorage.getItem('newProducts'))
+const productObg = Array.from(JSON.parse(localStorage.getItem('newProducts')))
 const productDiv = document.createElement('div')
-
-
-window.onload = console.log(productObg)
 
 
 productObg.forEach(product => {
