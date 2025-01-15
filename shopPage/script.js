@@ -124,7 +124,7 @@ paymentBtn.addEventListener('click', function () {
             }
 
         })
-        localStorage.setItem('newProducts', JSON.stringify(productToStore))
+        localStorage.setItem('newProducts', (localStorage.getItem('newProducts') + JSON.stringify(productToStore.children)))
         sendToShoppingCart.innerHTML = 'Sended!'
         location.href = '../calculatPage/index.html'
     })

@@ -1,3 +1,14 @@
 body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
+}
+
+.product{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: clamp(400px, 90%, 300px);
+    margin: 0 auto;
 }
