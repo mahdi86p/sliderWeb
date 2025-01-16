@@ -18,9 +18,13 @@
     background-color: #505050;
 }
 
+@font-face {
+    font-family: 'font';
+    src: url(../font/static/PlaywriteAUSA-Regular.ttf);
+}
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'font';
     display: flex;
     flex-direction: column;
     justify-content: center;
