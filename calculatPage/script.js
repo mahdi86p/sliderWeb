@@ -1,5 +1,5 @@
 const allProduct = document.querySelector('.allProduct')
-const productObg = Array.from(JSON.parse(localStorage.getItem('newProducts')))
+const productObg = Array.from(JSON.parse(localStorage.getItem('newProducts'))) || []
 const productDiv = document.createElement('div')
 
 
@@ -34,3 +34,5 @@ productObg.forEach(product => {
 
     allProduct.append(parentDivElem)
 });
+
+console.log(localStorage)

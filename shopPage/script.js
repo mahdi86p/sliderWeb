@@ -91,15 +91,15 @@ products.forEach(function (event) {
 
 paymentBtn.addEventListener('click', function () {
     allProductsArray = Array.from(allProducts.children)
-    let sendToShoppingCart = document.createElement('button')
+    const sendToShoppingCart = document.createElement('button')
     sendToShoppingCart.innerHTML = 'Send to ShopingCart'
     sendToShoppingCart.classList = 'sendClass'
+    modal.style.opacity = 1
 
     allProductsArray.forEach(element => {
         if (element.children.length === 5) {
             element.children[4].remove()
 
-            modal.style.opacity = 1
             modal.append(element)
 
             sumPrice = 0
@@ -113,23 +113,38 @@ paymentBtn.addEventListener('click', function () {
     modal.append(sendToShoppingCart)
 
     sendToShoppingCart.addEventListener('click', function () {
-        allProductsArray.forEach(product => {
-            if (product.id !== 'alert') {
-                const proImg = product.children[0].src
-                const proName = product.children[1].innerHTML
-                const proStars = product.children[2].innerHTML
-                const proPrice = product.children[3].innerHTML
+        if (sendToShoppingCart.innerHTML !== 'Sended!') {
+            // if sendtoshop Btn.innerHTML !== 'Sended!' -->
+            allProductsArray.forEach(product => {
+                if (product.id !== 'alert') {
+                    const proImg = product.children[0].src
+                    const proName = product.children[1].innerHTML
+                    const proStars = product.children[2].innerHTML
+                    const proPrice = product.children[3].innerHTML
 
-                productToStore.push({ proImg, proName, proStars, proPrice })
-                console.log(productToStore)
+                    productToStore.push(
+                        { proImg, proName, proStars, proPrice }
+                    )
+
+                    console.log(productToStore , product)
+                }
+
+            })
+
+            if (localStorage.newProducts === 'undefined') {
+                localStorage.setItem('newProducts', JSON.stringify(productToStore))
             }
 
-        })
+            else {
+                if (sendToShoppingCart.innerHTML !== 'Sended!') {
+                    localStorage.setItem('newProducts', JSON.parse(localStorage.newProducts) + JSON.stringify(productToStore))
+                    // location.href = '../calculatPage/index.html'
+                }
+            }
 
-        localStorage.setItem('newProducts' , JSON.stringify(localStorage.newProducts) + productToStore)
 
-        sendToShoppingCart.innerHTML = 'Sended!'
-        location.href = '../calculatPage/index.html'
+            sendToShoppingCart.innerHTML = 'Sended!'
+        }
     })
 })
 
