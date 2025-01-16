@@ -131,13 +131,15 @@ paymentBtn.addEventListener('click', function () {
 
             })
 
-            if (localStorage.newProducts === 'undefined') {
+            if (localStorage.getItem('newProducts') === null) {
                 localStorage.setItem('newProducts', JSON.stringify(productToStore))
             }
 
             else {
                 if (sendToShoppingCart.innerHTML !== 'Sended!') {
-                    localStorage.setItem('newProducts', JSON.parse(localStorage.newProducts) + JSON.stringify(productToStore))
+                    let existingProducts = JSON.parse(localStorage.getItem('newProducts'));
+                    existingProducts = existingProducts.concat(productToStore);
+                    localStorage.setItem('newProducts', JSON.stringify(existingProducts));
                     // location.href = '../calculatPage/index.html'
                 }
             }
