@@ -1,7 +1,7 @@
 const allProduct = document.querySelector('.allProduct')
 const productObg = Array.from(JSON.parse(localStorage.getItem('newProducts'))) || []
 const productDiv = document.createElement('div')
-
+const btn = document.querySelector('button')
 
 productObg.forEach(product => {
     const parentDivElem = document.createElement('div')
