@@ -214,3 +214,8 @@ li {
     justify-content: space-between;
     gap: 10px;
 }
+
+a{
+    align-items: center;
+    display: flex;
+}
